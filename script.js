@@ -158,7 +158,7 @@ function addExpense(event) {
     dd: expenseDate.substr(-2)
   };
 
-  const description = desc.value;
+  const descriptionVal = description.value;
   const account = accountSelect.value;
   const category = categorySelect.value;
   const amountVal = amount.value;
@@ -169,7 +169,7 @@ function addExpense(event) {
       appendRequestObj(spreadsheetId, [
         [
           `=DATE(${dateObj.yyyy}, ${dateObj.mm}, ${dateObj.dd})`,
-          description,
+          descriptionVal,
           account,
           category,
           isIncome ? 0 : amountVal,
@@ -181,7 +181,7 @@ function addExpense(event) {
       response => {
         // reset fileds
         date.value = "";
-        desc.value = "";
+        description.value = "";
         accountSelect.value = "";
         categorySelect.value = "";
         amount.value = "";
